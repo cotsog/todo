@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/mrekucci/todo/internal/task"
+	"github.com/cotsog/todo/internal/task"
 )
 
 func usage() {
