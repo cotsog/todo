@@ -10,7 +10,7 @@ go get github.com/axw/gocov/gocov
 go get github.com/mattn/goveralls
 go get golang.org/x/tools/cmd/cover
 
-
+find .
 go test -coverprofile=profile.out /home/travis/gopath/src/internal/task
 
 $HOME/gopath/bin/goveralls -service=travis-ci -coverprofile=profile.out
