@@ -11,7 +11,7 @@ go get github.com/mattn/goveralls
 go get golang.org/x/tools/cmd/cover
 
 
-go test -coverprofile=profile.out internal/task
+go test -coverprofile=profile.out /home/travis/gopath/src/internal/task
 
 $HOME/gopath/bin/goveralls -service=travis-ci -coverprofile=profile.out
 
