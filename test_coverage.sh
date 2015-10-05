@@ -10,25 +10,9 @@ go get github.com/axw/gocov/gocov
 go get github.com/mattn/goveralls
 go get golang.org/x/tools/cmd/cover
 
-echo "mode: set" > cc.out
-shopt -s nullglob
-for dir in $(find . -type d); do
-    set -- $dir/*.go
-    if [ "$#" -gt 0 ]; then
-        go test -coverprofile=profile.out $dir
-        if [ $? -eq 0 ]; then
-            if [ -f profile.out ]; then
-                grep -v "mode: set" profile.out >> cc.out
-            fi
-        else
-            rm -f cc.out profile.out
-            exit 1
-        fi  
-    fi
-done
 
-$HOME/gopath/bin/goveralls -service=travis-ci -coverprofile=cc.out
+go test -coverprofile=profile.out
 
-rm -f cc.out profile.out
+$HOME/gopath/bin/goveralls -service=travis-ci -coverprofile=profile.out
 
 exit 0
